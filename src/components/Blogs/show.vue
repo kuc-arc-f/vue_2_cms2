@@ -66,6 +66,7 @@ export default {
     components: { NavUser, Footer },
     created() {
         this.database = firebase.firestore()
+        this.TBL_BLOGS = this.sysConst.TBL_BLOGS;
     },
     data: function( ) {
         var itemDat = {title : '', content : ''}
@@ -74,6 +75,7 @@ export default {
             editFlg: false,
             updated: false,
             baseUrl : '',
+            TBL_BLOGS : '',
         }
     },
     mounted: function() {
@@ -81,7 +83,7 @@ export default {
     },
     methods: {
         getItem: function() {
-            var docRef = this.database.collection("blogs").doc( this.$route.params.id )
+            var docRef = this.database.collection(this.TBL_BLOGS).doc( this.$route.params.id )
             var self = this
             docRef.get().then(function(doc) {
                 var dat = doc.data()

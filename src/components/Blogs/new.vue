@@ -27,6 +27,7 @@ export default {
     created() {
         this.database = firebase.firestore()
         this.baseUrl = this.sysConst.API_BASE;
+        this.TBL_BLOGS = this.sysConst.TBL_BLOGS;
         console.log(this.baseUrl);
     },
     data() {
@@ -35,13 +36,14 @@ export default {
             content:'',
             user_id: '',
             baseUrl : '',
+            TBL_BLOGS : '',
         }
     },
     methods: {
         createTask: function() {
             console.log('#create')
             var self = this
-            this.database.collection("blogs").add({
+            this.database.collection(this.TBL_BLOGS).add({
                 title: this.title,
                 content: this.content,
                 uid : 0,

@@ -5,7 +5,7 @@ export const Mixin =  {
   methods:{
     set_sysConst(){
         this.sysConst={
-            URL_BASE : '/',
+            URL_BASE : '/cms2',
             /* API_BASE : 'http://localhost/apiphp3/', */
             API_BASE : 'http://192.168.10.104/apiphp3/',
             SITE_NAME : 'cms2',
@@ -13,7 +13,8 @@ export const Mixin =  {
             STORAGE_KEY_tasksData : 'key_tasks_dat',
             STORAGE_KEY_userData : 'key_user_dat',
             STORAGE_KEY_flash : 'strage_flash_key',
-            AJAX_MAX_TIME : 8000,            
+            AJAX_MAX_TIME : 8000,       
+            TBL_BLOGS : 'blog_items',     
         }
     },
     /* local storage */

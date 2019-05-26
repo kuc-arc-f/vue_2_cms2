@@ -59,19 +59,24 @@ export default {
   components: { NavUser ,Footer },
   created () {
     this.database = firebase.firestore()
+    this.URL_BASE = this.sysConst.URL_BASE;
+    this.TBL_BLOGS = this.sysConst.TBL_BLOGS;
+    console.log(this.TBL_BLOGS )
     this.getTasks()
   },
   data () {
     return {
       blogs: [],
       user_id : '',
+      URL_BASE : '',
+      TBL_BLOGS : '',
     }
   },
   methods: {
     getTasks() {
         var items = []
         var self = this
-        var dbRef = this.database.collection('blogs')
+        var dbRef = this.database.collection(this.TBL_BLOGS)
         dbRef = dbRef.orderBy("up_date", "desc")
         dbRef.get().then(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
@@ -79,7 +84,6 @@ export default {
                 var item = doc.data()
                 var dt = item.up_date.toDate()
                 var dt_str = dt.getFullYear() + '-' + (dt.getMonth()+1) + '-' + dt.getDate()
-                console.log( dt_str )
                 items.push({
                     id : doc.id,
                     title : item.title,

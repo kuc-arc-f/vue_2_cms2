@@ -41,6 +41,7 @@ export default {
         this.database = firebase.firestore()
         this.baseUrl = this.sysConst.API_BASE;
         this.page_id = this.$route.params.id
+        this.TBL_BLOGS = this.sysConst.TBL_BLOGS;
     },
     data() {
         return {
@@ -49,6 +50,7 @@ export default {
             baseUrl : '',
             page_id: 0,
             message : '',
+            TBL_BLOGS : '',
         }
     },
     mounted: function() {
@@ -56,7 +58,7 @@ export default {
     },
     methods: {
         getItem: function() {
-            var docRef = this.database.collection("blogs").doc( this.$route.params.id )
+            var docRef = this.database.collection(this.TBL_BLOGS).doc( this.$route.params.id )
             var self = this
             docRef.get().then(function(doc) {
                 var dat = doc.data()
@@ -69,7 +71,7 @@ export default {
         },
         updateTask: function () {
             var self = this
-            var docRef = this.database.collection("blogs").doc( this.$route.params.id );
+            var docRef = this.database.collection(this.TBL_BLOGS).doc( this.$route.params.id );
             docRef.update({
                 title: self.title,
                 content: self.content
@@ -84,7 +86,7 @@ export default {
         },
         deleteTask: function () {
             var self = this
-            var docRef = this.database.collection("blogs").doc(this.$route.params.id)
+            var docRef = this.database.collection(this.TBL_BLOGS).doc(this.$route.params.id)
             docRef.delete().then(function() {
                 console.log("Document successfully deleted!")
                 self.$router.push('/blogs')

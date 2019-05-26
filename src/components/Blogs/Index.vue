@@ -50,6 +50,7 @@ export default {
     this.database = firebase.firestore()
     this.baseUrl = this.sysConst.API_BASE;
     this.site_name = this.sysConst.SITE_NAME;
+    this.TBL_BLOGS = this.sysConst.TBL_BLOGS;
 //    console.log( this.baseUrl )
     this.getTasks()
   },
@@ -58,14 +59,15 @@ export default {
       blogs: [],
       user_id : '',
       baseUrl : '',
-      site_name : ''
+      site_name : '',
+      TBL_BLOGS : '',
     }
   },
   methods: {
     getTasks() {
         var items = []
         var self = this
-        var dbRef = this.database.collection('blogs')
+        var dbRef = this.database.collection( this.TBL_BLOGS )
         dbRef = dbRef.orderBy("up_date", "desc")
         dbRef.get().then(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
