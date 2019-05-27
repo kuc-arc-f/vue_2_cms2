@@ -1,29 +1,27 @@
-# vue_2
+# vue_2_cms2
 
-## Project setup
-```
-npm install
-```
+ Version: 0.9.1
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+ Author  : Kouji Nakashima / kuc-arc-f.com
 
-### Compiles and minifies for production
-```
-npm run build
-```
+ date    : 2019/05/26
 
-### Run your tests
-```
-npm run test
-```
+***
+### Summary
 
-### Lints and fixes files
-```
-npm run lint
-```
+cms2:
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Vue.js (Vue-CLI 3) +firebase SPA sample, cms2
+
+***
+### Blog
+
+https://knaka0209.hatenablog.com/entry/vue_spa_17
+
+***
+### more :
+
+https://kuc-arc-f.github.io/web-dev/2019/05/26/Add-Vue-js-firebase-SPA-markdown-cms-sample-cms2/
+
+***
+
